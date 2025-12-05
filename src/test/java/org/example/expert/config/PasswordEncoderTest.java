@@ -15,14 +15,15 @@ class PasswordEncoderTest {
 
     @Test
     void matches_메서드가_정상적으로_동작한다() {
-        // given
+
+        // given (사전 조건)
         String rawPassword = "testPassword";
         String encodedPassword = passwordEncoder.encode(rawPassword);
 
-        // when
-        boolean matches = passwordEncoder.matches(encodedPassword, rawPassword);
+        // when (실행 동작)
+        boolean matches = passwordEncoder.matches(rawPassword, encodedPassword); // raw와 encoded 위치 변경
 
-        // then
+        // then (결과 검증)
         assertTrue(matches);
     }
 }
